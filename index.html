@@ -1,80 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>For Yamini ❤️</title>
+  <title>Our Love Page ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to top, #000000, #1a001a);
+      text-align: center;
+      color: white;
+      font-family: Arial;
+    }
 
-<style>
-body {
-  margin: 0;
-  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
-  color: white;
-  text-align: center;
-  font-family: Arial;
-  overflow: hidden;
-  padding: 20px;
-}
+    h1 {
+      margin-top: 20px;
+      font-size: 40px;
+    }
 
-h1 {
-  margin-top: 80px;
-  font-size: 40px;
-}
+    img {
+      width: 250px;
+      height: 250px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 20px pink;
+    }
 
-p {
-  font-size: 18px;
-  max-width: 700px;
-  margin: auto;
-  line-height: 1.6;
-}
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background: pink;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
 
-.heart {
-  position: absolute;
-  color: red;
-  animation: fall 5s linear infinite;
-}
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 24px;
+      animation: float 4s linear infinite;
+    }
 
-@keyframes fall {
-  0% { transform: translateY(-10%); opacity: 1; }
-  100% { transform: translateY(110vh); opacity: 0; }
-}
-</style>
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-700px); opacity: 0; }
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>❤️ Yamini, I Miss You So Much ❤️</h1>
+<h1>❤️ Our Beautiful Moments ❤️</h1>
 
-<p>
-I miss you so much… and I just want to be with you, talk to you, fight with you, laugh with you, dance with you, sing with you… spend every moment with you.
-<br><br>
-Nuv levu kabatti sometimes friends tho bayataki velthanu… but akkadiki vellina kuda, na mind lo nuvve untav. Even songs vintunna appudu kuda, every song reminds me of you.
-<br><br>
-I miss hugging you, kissing you, and just having you around me… your presence. It doesn’t feel the same without you.
-<br><br>
-It’s never about time for me… it’s always about you. Nuv always naa priority eh. I just didn’t show it properly, and I’m really sorry for that.
-<br><br>
-I don’t want just time… I want us… everything with you ❤️
-</p>
+<!-- ADD YOUR PHOTO HERE -->
+<img src="WhatsApp Image 2026-03-28 at 2.40.34 PM.jpg" alt="Our Photo">
 
-<!-- Background Music -->
-<audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-</audio>
+<br>
+
+<button onclick="startLove()">Click for Surprise ❤️</button>
+
+<!-- ADD YOUR SONG HERE -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/watch?v=Wbs6pPJgBnA"
+frameborder="0"
+allow="autoplay">
+</iframe>
+
+  <button onclick="playMusic()">Click for Surprise ❤️</button>
 
 <script>
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 20 + 10 + "px";
-  document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
+function playMusic() {
+  document.querySelector("iframe").src += "&mute=0";
 }
+</script>
+<script>
+  function startLove() {
+    document.getElementById("music").play();
+    setInterval(createHeart, 200);
+  }
 
-setInterval(createHeart, 300);
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 4000);
+  }
 </script>
 
 </body>
