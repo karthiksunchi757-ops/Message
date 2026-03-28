@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Yamini ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  color: white;
+  text-align: center;
+  font-family: Arial;
+  overflow: hidden;
+  padding: 20px;
+}
+
+h1 {
+  margin-top: 80px;
+  font-size: 40px;
+}
+
+p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.heart {
+  position: absolute;
+  color: red;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10%); opacity: 1; }
+  100% { transform: translateY(110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>❤️ Yamini, I Miss You So Much ❤️</h1>
+
+<p>
+I miss you so much… and I just want to be with you, talk to you, fight with you, laugh with you, dance with you, sing with you… spend every moment with you.
+<br><br>
+Nuv levu kabatti sometimes friends tho bayataki velthanu… but akkadiki vellina kuda, na mind lo nuvve untav. Even songs vintunna appudu kuda, every song reminds me of you.
+<br><br>
+I miss hugging you, kissing you, and just having you around me… your presence. It doesn’t feel the same without you.
+<br><br>
+It’s never about time for me… it’s always about you. Nuv always naa priority eh. I just didn’t show it properly, and I’m really sorry for that.
+<br><br>
+I don’t want just time… I want us… everything with you ❤️
+</p>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 10 + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
