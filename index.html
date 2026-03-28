@@ -56,7 +56,6 @@ button:hover {
 
 <body>
 
-<button onclick="playMusic()">Click for Surprise ❤️</button>
 
 <h1>❤️ Yamini, I Miss You So Much ❤️</h1>
 
@@ -72,15 +71,18 @@ It’s never about time for me… it’s always about you. Nuv always naa priori
 I don’t want just time… I want us… everything with you ❤️
 </p>
 
-<!-- Background Music -->
-<audio id="bgMusic" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-</audio>
-
-<script>
-function playMusic() {
-  document.getElementById("bgMusic").play();
-}
+  <div style="margin-top:20px;">
+  <img src="personal.jpg" alt="Yamini"
+  style="
+    width:260px;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(255,0,0,0.8);
+    transition: transform 0.3s;
+  "
+  onmouseover="this.style.transform='scale(1.05)'"
+  onmouseout="this.style.transform='scale(1)'"
+  >
+</div>
 
 // Floating hearts
 function createHeart() {
