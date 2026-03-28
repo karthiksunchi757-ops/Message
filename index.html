@@ -1,103 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>For Yamini ❤️</title>
 
 <style>
 body {
-  margin: 0;
-  background: url('bg.jpg') no-repeat center center/cover;
-  color: white;
-  text-align: center;
-  font-family: Arial;
-  overflow: hidden;
-  padding: 20px;
-}
-
-/* Dark overlay */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: -1;
-}
-
-h1 {
-  margin-top: 60px;
-  font-size: 40px;
-}
-
-p {
-  font-size: 18px;
-  max-width: 700px;
-  margin: auto;
-  line-height: 1.6;
-}
-
-/* Hidden initially */
-#content {
-  display: none;
-  animation: fadeIn 2s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #1f1c2c, #928dab);
+    color: white;
+    text-align: center;
 }
 
 /* Button */
 button {
-  padding: 15px 30px;
-  font-size: 18px;
-  border: none;
-  border-radius: 30px;
-  background: red;
-  color: white;
-  cursor: pointer;
-  margin-top: 150px;
+    margin-top: 50px;
+    padding: 12px 25px;
+    background: red;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-button:hover {
-  background: darkred;
+/* Message */
+.content {
+    display: none;
+    margin-top: 30px;
 }
 
-/* Photo */
-img {
-  width: 260px;
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(255,0,0,0.8);
-  margin-top: 20px;
-  transition: transform 0.3s;
+/* Small Image */
+.small-img {
+    width: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Hearts */
-.heart {
-  position: absolute;
-  color: red;
-  animation: fall linear;
+.small-img:hover {
+    transform: scale(1.05);
 }
 
-@keyframes fall {
-  0% { transform: translateY(-10%); opacity: 1; }
-  100% { transform: translateY(110vh); opacity: 0; }
+/* Fullscreen Overlay */
+#fullscreenImage {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fullscreen Image */
+#fullscreenImage img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    animation: zoomIn 0.4s ease;
+}
+
+/* Animation */
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 </style>
+
 </head>
 
 <body>
 
-<!-- BUTTON -->
+<!-- Button -->
 <button onclick="showContent()">Click for Surprise ❤️</button>
 
-<!-- HIDDEN CONTENT -->
-<div id="content">
+<!-- Content -->
+<div class="content" id="content">
+    <h1>❤️ Yamini, I Miss You So Much ❤️</h1>
 
-<h1>❤️ Yamini, I Miss You So Much ❤️</h1>
-
+   
 <p>
 I miss you so much… and I just want to be with you, talk to you, fight with you, laugh with you, dance with you, sing with you… spend every moment with you.
 <br><br>
@@ -110,35 +96,30 @@ It’s never about time for me… it’s always about you. Nuv always naa priori
 I don’t want just time… I want us… everything with you ❤️
 </p>
 
-<!-- PHOTO -->
-<img src="./personal.jpg" alt="Yamini">
-onmouseover="this.style.transform='scale(1.05)'"
-onmouseout="this.style.transform='scale(1)'">
 
+
+    <!-- Clickable Image -->
+    <img src="./personal.jpg" alt="Yamini"
+         class="small-img"
+         onclick="openImage()">
+</div>
+
+<!-- Fullscreen Image -->
+<div id="fullscreenImage" onclick="closeImage()">
+    <img src="./personal.jpg">
 </div>
 
 <script>
 function showContent() {
-  document.getElementById("content").style.display = "block";
-
-  // Start hearts
-  setInterval(createHeart, 250);
+    document.getElementById("content").style.display = "block";
 }
 
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "❤️";
+function openImage() {
+    document.getElementById("fullscreenImage").style.display = "flex";
+}
 
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (Math.random() * 20 + 10) + "px";
-  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-
-  document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
+function closeImage() {
+    document.getElementById("fullscreenImage").style.display = "none";
 }
 </script>
 
