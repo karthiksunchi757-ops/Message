@@ -26,21 +26,6 @@ p {
   line-height: 1.6;
 }
 
-button {
-  padding: 12px 25px;
-  font-size: 16px;
-  border: none;
-  border-radius: 25px;
-  background: red;
-  color: white;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-button:hover {
-  background: darkred;
-}
-
 .heart {
   position: absolute;
   color: red;
@@ -56,7 +41,6 @@ button:hover {
 
 <body>
 
-
 <h1>❤️ Yamini, I Miss You So Much ❤️</h1>
 
 <p>
@@ -71,7 +55,8 @@ It’s never about time for me… it’s always about you. Nuv always naa priori
 I don’t want just time… I want us… everything with you ❤️
 </p>
 
-  <div style="margin-top:20px;">
+<!-- PHOTO -->
+<div style="margin-top:20px;">
   <img src="personal.jpg" alt="Yamini"
   style="
     width:260px;
@@ -84,7 +69,8 @@ I don’t want just time… I want us… everything with you ❤️
   >
 </div>
 
-// Floating hearts
+<!-- FIXED SCRIPT -->
+<script>
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
