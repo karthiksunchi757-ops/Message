@@ -6,12 +6,24 @@
 <style>
 body {
   margin: 0;
-  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  background: url('bg.jpg') no-repeat center center/cover;
   color: white;
   text-align: center;
   font-family: Arial;
   overflow: hidden;
   padding: 20px;
+}
+
+/* Dark overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
 }
 
 h1 {
@@ -26,6 +38,43 @@ p {
   line-height: 1.6;
 }
 
+/* Hidden initially */
+#content {
+  display: none;
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Button */
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  background: red;
+  color: white;
+  cursor: pointer;
+  margin-top: 150px;
+}
+
+button:hover {
+  background: darkred;
+}
+
+/* Photo */
+img {
+  width: 260px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255,0,0,0.8);
+  margin-top: 20px;
+  transition: transform 0.3s;
+}
+
+/* Hearts */
 .heart {
   position: absolute;
   color: red;
@@ -40,6 +89,12 @@ p {
 </head>
 
 <body>
+
+<!-- BUTTON -->
+<button onclick="showContent()">Click for Surprise ❤️</button>
+
+<!-- HIDDEN CONTENT -->
+<div id="content">
 
 <h1>❤️ Yamini, I Miss You So Much ❤️</h1>
 
@@ -56,21 +111,20 @@ I don’t want just time… I want us… everything with you ❤️
 </p>
 
 <!-- PHOTO -->
-<div style="margin-top:20px;">
-  <img src="personal.jpg" alt="Yamini"
-  style="
-    width:260px;
-    border-radius:20px;
-    box-shadow:0 0 25px rgba(255,0,0,0.8);
-    transition: transform 0.3s;
-  "
-  onmouseover="this.style.transform='scale(1.05)'"
-  onmouseout="this.style.transform='scale(1)'"
-  >
+<img src="personal.jpg" alt="Yamini"
+onmouseover="this.style.transform='scale(1.05)'"
+onmouseout="this.style.transform='scale(1)'">
+
 </div>
 
-<!-- FIXED SCRIPT -->
 <script>
+function showContent() {
+  document.getElementById("content").style.display = "block";
+
+  // Start hearts
+  setInterval(createHeart, 250);
+}
+
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
@@ -86,8 +140,6 @@ function createHeart() {
     heart.remove();
   }, 5000);
 }
-
-setInterval(createHeart, 250);
 </script>
 
 </body>
